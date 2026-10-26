@@ -43,7 +43,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#doctor">Our Doctor</a></li>
-                    <li><a href="#care">Pet Care</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#faq">FAQs</a></li>
                     <li><a class="btn amber" style="padding:10px 22px" href="tel:+919413604850" data-ev="call">Call the
                             Clinic</a></li>
@@ -151,9 +151,14 @@
             <div class="wrap split">
                 <div><span class="eyebrow rv">About the Clinic</span>
                     <h2 class="rv">A Clinic Built Around Your Pet's Wellbeing</h2>
-                    <p class="rv">Jivan Jyoti Pet Clinic serves families in Bharatpur who want a trusted local
-                        veterinarian. Replace this with the clinic's real story, philosophy and what owners can expect
-                        during a visit.</p>
+                    <p class="rv">
+                        With over 10 years of experience and a commitment to compassionate care,
+                        Jivan Jyoti Pet Clinic has been dedicated to keeping pets healthy and happy
+                        in Bharatpur. Our approach combines gentle handling, attentive care, and
+                        a genuine love for animals, helping every pet feel safe and every pet parent
+                        feel confident. From routine check-ups to treatment, your pet's well-being
+                        is always our priority.
+                    </p>
                     <ul class="checks rv">
                         <li>Clear communication about diagnosis and treatment</li>
                         <li>Preventive health guidance for every life stage</li>
@@ -172,26 +177,85 @@
             </div>
         </section>
 
-        <section class="alt" id="care">
+        <section class="reviews" id="reviews" aria-labelledby="rv-h">
             <div class="wrap">
-                <span class="eyebrow rv">Pet Care</span>
-                <h2 class="rv">Helping You Make Informed Decisions About Pet Health</h2>
-                <div class="grid3">
-                    <div class="card rv">
-                        <h3>A Puppy's First Vet Visit</h3>
-                        <p>What to bring and what to ask during the first checkup.</p>
+                <div class="rvpanel rv">
+                    <div class="car" id="car" role="region" aria-roledescription="carousel"
+                        aria-label="Client testimonials">
+                        <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+                        <div class="car-head">
+                            <span class="car-label">Client stories</span>
+                            <span class="count" id="count" aria-hidden="true">01 / 04</span>
+                        </div>
+                        <span class="qm" aria-hidden="true">&ldquo;</span>
+                        <div class="car-view">
+                            <ul class="car-track" id="track">
+                                <li class="slide" aria-label="1 of 4">
+                                    <blockquote>
+                                        <p>The doctor explained everything calmly and never rushed. Our Labrador was
+                                            nervous, but he left the clinic wagging his tail.</p>
+                                    </blockquote>
+                                    <div class="who"><span class="av" aria-hidden="true">R</span>
+                                        <div><b>Rohit Sharma</b><small>Owner of Bruno, Labrador</small></div>
+                                    </div>
+                                </li>
+                                <li class="slide" aria-label="2 of 4">
+                                    <blockquote>
+                                        <p>Clear advice on vaccination for our new kitten, and honest answers about what
+                                            was needed and what was not.</p>
+                                    </blockquote>
+                                    <div class="who"><span class="av" aria-hidden="true">P</span>
+                                        <div><b>Priya Singh</b><small>Owner of Luna, Persian cat</small></div>
+                                    </div>
+                                </li>
+                                <li class="slide" aria-label="3 of 4">
+                                    <blockquote>
+                                        <p>Easy to reach on call and WhatsApp, and the clinic is clean and quiet. It
+                                            feels like a place that truly cares.</p>
+                                    </blockquote>
+                                    <div class="who"><span class="av" aria-hidden="true">A</span>
+                                        <div><b>Amit Verma</b><small>Owner of Simba, Indie dog</small></div>
+                                    </div>
+                                </li>
+                                <li class="slide" aria-label="4 of 4">
+                                    <blockquote>
+                                        <p>Gentle handling and patient follow-ups after treatment. We now trust them for
+                                            every checkup.</p>
+                                    </blockquote>
+                                    <div class="who"><span class="av" aria-hidden="true">N</span>
+                                        <div><b>Neha Gupta</b><small>Owner of Coco, Beagle</small></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="car-bar">
+                            <div class="dots" id="dots" role="tablist" aria-label="Choose testimonial"></div>
+                            <div class="car-ctrl">
+                                <button type="button" class="cbtn" id="prev"
+                                    aria-label="Previous testimonial">&larr;</button>
+                                <button type="button" class="cbtn" id="next"
+                                    aria-label="Next testimonial">&rarr;</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card rv d1">
-                        <h3>Vaccination Questions</h3>
-                        <p>Questions worth asking your vet about vaccine schedules.</p>
-                    </div>
-                    <div class="card rv d2">
-                        <h3>Signs Your Pet Needs a Vet</h3>
-                        <p>Warning signs that should not wait.</p>
-                    </div>
+                    <aside class="rvside">
+                        <img data-speed="0.07"
+                            src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=900&q=70&auto=format&fit=crop"
+                            width="900" height="1000" alt="Happy dog with its owner" loading="lazy">
+                        <div class="rvcopy">
+                            <span class="eyebrow">Testimonials</span>
+                            <h2 id="rv-h">Trusted by Pet Families in Bharatpur</h2>
+                            <p>Every pet is family. Here is what owners say about their visits. Sample reviews are shown
+                                for layout and will be replaced with genuine, permitted reviews before launch.</p>
+                            <div class="cta">
+                                <a class="btn amber" href="#contact">Book a Visit</a>
+                                <a class="btn ghost"
+                                    href="https://www.google.com/maps/search/?api=1&query=Jivan+Jyoti+Pet+Clinic+Bharatpur"
+                                    target="_blank" rel="noopener" data-ev="reviews">Google Reviews</a>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
-                <p class="rv" style="margin-top:20px;font-size:.9rem">Articles should be reviewed by the doctor before
-                    publishing.</p>
             </div>
         </section>
 

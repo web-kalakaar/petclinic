@@ -98,4 +98,111 @@
     if (a && window.dataLayer)
       dataLayer.push({ event: a.dataset.ev + "_click" });
   });
+
+  /* Testimonial carousel */
+  var car = document.getElementById("car");
+  if (car) {
+    var track = document.getElementById("track"),
+      slides = track.children,
+      n = slides.length,
+      dotsEl = document.getElementById("dots"),
+      cnt = document.getElementById("count"),
+      prog = document.getElementById("prog"),
+      cur = 0,
+      timer = null,
+      DUR = 6000,
+      hold = false,
+      sx = null;
+    car.style.setProperty("--dur", DUR + "ms");
+    var dots = [];
+    for (var i = 0; i < n; i++) {
+      (function (k) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("role", "tab");
+        b.setAttribute("aria-label", "Show testimonial " + (k + 1));
+        b.onclick = function () {
+          go(k, true);
+        };
+        dotsEl.appendChild(b);
+        dots.push(b);
+      })(i);
+    }
+    function pad(x) {
+      return (x < 10 ? "0" : "") + x;
+    }
+    function runBar() {
+      prog.classList.remove("run");
+      void prog.offsetWidth;
+      if (!rm) prog.classList.add("run");
+    }
+    function show(k) {
+      cur = (k + n) % n;
+      track.style.transform = "translateX(-" + cur * 100 + "%)";
+      for (var i = 0; i < n; i++) {
+        dots[i].classList.toggle("on", i === cur);
+        dots[i].setAttribute("aria-selected", i === cur);
+        slides[i].setAttribute("aria-hidden", i !== cur);
+      }
+      cnt.textContent = pad(cur + 1) + " / " + pad(n);
+    }
+    function schedule() {
+      clearTimeout(timer);
+      if (rm || hold) return;
+      runBar();
+      timer = setTimeout(function () {
+        go(cur + 1);
+      }, DUR);
+    }
+    function go(k, manual) {
+      show(k);
+      schedule();
+    }
+    function pause() {
+      hold = true;
+      clearTimeout(timer);
+      car.classList.add("paused");
+    }
+    function resume() {
+      hold = false;
+      car.classList.remove("paused");
+      schedule();
+    }
+    document.getElementById("prev").onclick = function () {
+      go(cur - 1, true);
+    };
+    document.getElementById("next").onclick = function () {
+      go(cur + 1, true);
+    };
+    car.addEventListener("mouseenter", pause);
+    car.addEventListener("mouseleave", resume);
+    car.addEventListener("focusin", pause);
+    car.addEventListener("focusout", resume);
+    car.addEventListener(
+      "touchstart",
+      function (e) {
+        sx = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
+    car.addEventListener(
+      "touchend",
+      function (e) {
+        if (sx === null) return;
+        var d = e.changedTouches[0].clientX - sx;
+        sx = null;
+        if (Math.abs(d) > 40) go(cur + (d < 0 ? 1 : -1), true);
+      },
+      { passive: true },
+    );
+    car.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") go(cur + 1, true);
+      if (e.key === "ArrowLeft") go(cur - 1, true);
+    });
+    document.addEventListener("visibilitychange", function () {
+      document.hidden ? pause() : resume();
+    });
+    show(0);
+    schedule();
+  }
 })();
